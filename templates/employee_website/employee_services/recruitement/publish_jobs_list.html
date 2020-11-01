@@ -1,0 +1,86 @@
+{% extends "layout/website_layout.html" %}
+{% load templatetag %}
+{% block content %}
+
+
+<div class="content-wrapper" style="min-height: 916px;">
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+            </div>
+            <div class="box-body">
+            <div class='table-responsive'> <div style="overflow-x:auto;">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                      <th> Sr.No </th>
+                      <th> Location </th>
+                      <th> Department   </th>
+                      <th> Designation</th>
+                      <th> Approved Requirement  </th>
+                      <th> Job Description </th>
+                      <th> Approved By </th>
+                      <th> Current Status</th>
+                      <th> Action </th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                      {% if responselistquery %}
+                         {% for data in responselistquery %}
+                          <tr>
+                              <td><strong>{{ responselistquery.start_index|add:forloop.counter0 }}</strong></td>
+                              <td>{{ data.location}}</td>
+                              <td>{{ data.department.department }}</td>
+                              <td>{{ data.designation }}</td>
+                              <td>{{ data.new_requirement }}</td>
+                              <td>{{ data.job_description }}</td>
+                              <td> {{ data.user }}</td>
+                            <td>{{ data.action_required }}</td>
+                            <td>
+                              {% get_permission_data_from 1 4 as permission_menu %}
+                                {% comment %}
+                                {% if permission_menu.edit %}
+                                    <a href="{% url 'crm_website_employeeservices_show_requirement_update_edit' data.id %}" style="color: green;">View<br>
+                                    </a>
+                                {% endif %}
+                                {% endcomment %}
+                                <a href="{% url 'crm_website_employeeservices_recruitement_recommended_publish_vacancies' data.id %}" style="color: green;"> Post</a> <br>
+                                {% comment %}
+                                <a href="{% url 'employeeservices_recommended_publish_vacancies_rejected' data.id %}" style="color: red;">Reject</a><br>
+
+                                <a href="{% url 'crm_website_employeeservices_recruitement_publish_jobs_put_on_hold' data.id %}" style="color: black;">Put On Hold</a><br>
+                                {%  endcomment %}
+
+                                {% approval_status_of_requirement request.user.id data.id as get_approval_level %}
+                                  
+                                  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                                {% if get_approval_level %}
+                                    <a href="{% url 'approval_vacancy_update_status' data.id get_approval_level.0.approval_level.sequence 1 %}" class="approval_level_cls"> Approval </a>
+                                {% endif  %}
+                            </td>
+                          </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr><td></td></tr>
+                    {% endif %}
+                </tfoot>
+              </table>
+            </div>
+          </div>
+          <!-- /.box -->
+        </div>
+                <div class="row">
+            {% include "layout/manage_pagination.html" %}
+        </div>
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% include "layout/admin_message.html" %}
+{% endblock %}
+

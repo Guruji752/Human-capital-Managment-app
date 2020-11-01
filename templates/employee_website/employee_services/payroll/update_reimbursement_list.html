@@ -1,0 +1,84 @@
+{% extends "layout/website_layout.html" %}
+{% load templatetag %}
+{% block content %}
+
+<div class="content-wrapper" style="min-height: 916px;">
+    <section class="content-header">
+      <h1>
+        Accept Claims
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'admindashboard' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"> Accept Claims   </a></li>
+        <li class="active"></li>
+      </ol>
+    </section>
+
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+            <div class="box-body">
+            <div class='table-responsive'> <div style="overflow-x:auto;">
+              <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                      <tr>
+                          <th> S.No</th>
+                          <th> Month and Year</th>
+                          <th> Location  </th>
+                          <th> Employee id </th>
+                          <th> Designation </th>
+                          <th> Department </th>
+                          <th> Claim Type</th>
+                          <th> Claim Period </th>
+                          <th> Claim Amount </th>
+                          <th> Claim Approved  </th>
+                          <th> Status </th>
+                          <th> Action </th>
+                      </tr>
+                  </thead>
+                <tbody>
+                    {% if responselistquery %}
+                         {% for data in responselistquery %}
+                           <tr>
+                            <td> 
+                              <strong>{{ responselistquery.start_index|add:forloop.counter0 }}</strong>
+                            </td>
+                            <td>{{ data.claim_date_1}}</td>
+                            <td>
+                            {{data.location_1}}
+                            </td>
+                            <td>{{ data.employee_id_1}}</td>
+                            <td>{{ data.designation_1 }}</td>
+                            <td> {{ data.department_1 }} </td>
+                            <td>{{ data.claim_type_1 }}</td>
+                            <td> {{data.claim_period_1 }}</td>
+                            <td>{{ data.claim_amount_1 }}</td>
+                            <td>{{ data.claim_amount_1}}</td>
+                            <td>{{ data.claim_status }}</td>
+                            <td>
+                               <a href="{% url 'crm_employee_services_claimandreimbursement_submitclaims_approved' data.id %}" style='color: green'> Approve </a><br>
+
+                                <a href="{% url 'Delete_claim' data.id %}" style ='color:red'>Reject</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr><td></td></tr>
+                    {% endif %}
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+                <div class="row">
+            {% include "layout/manage_pagination.html" %}
+        </div>
+      </div>
+    </section>
+</div>
+{% include "layout/admin_message.html" %}
+{% endblock %}
+

@@ -1,0 +1,77 @@
+{% extends "layout/website_layout.html" %}
+
+{% block content %}
+
+  <div class="content-wrapper" style="min-height: 946px;">
+    <section class="content">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title"> </h3>
+        </div>
+        <div class="box-body">
+          <form action="" method="post" id="parent_company_form" enctype="multipart/form-data">
+        <div class="row">
+          
+          {% csrf_token %}
+          <div class="box-header with-border">
+            <div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class ="row">
+                      <div class ="col-sm-4">
+                        <label>Consultant Name</label>
+                      {{form.name}}
+                      </div>
+                     
+                      <div class="col-sm-4">
+                        <label>Vacancy Available</label>
+                        {{ form.new_requirement}}
+                      </div>
+                      
+                      <div class="col-sm-4">
+                        <label> Mode of Response</label>
+                        <br>{{ form.mode_of_response_consultant }}</br>
+                      </div>
+
+                      <div class="col-sm-4">
+                        <label> Valid Upto</label>
+                          {{ form.valid_upto_consultant }}
+                      </div>
+                        {{form.job_description.as_hidden}}
+                        {{form.department.as_hidden}}
+                        {{form.designation.as_hidden}}
+                        
+                      
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+            
+        </div>
+        <div class="form-group">
+                  
+        <input name="" type="submit" value="Submit" class="btn btn-primary" id="submitbtn"></div>
+      </div>
+          </form>
+  </section>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+$(document).ready(function(){
+    $(document).on('keyup', function(){
+      
+        var number1 = parseInt($('#id_new_requirement').val()); 
+        var number2= parseInt($('#id_vacancy_posted').val());
+        if(number2>number1){
+          alert('Vacancy posted must be less than or equal to Vacancy Available');
+        }
+
+    });
+});
+
+</script>
+
+{% endblock %}

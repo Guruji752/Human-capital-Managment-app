@@ -1,0 +1,433 @@
+{% extends "layout/website_layout.html" %}
+
+{% block content %}
+
+    {% comment %} <div class="content-wrapper" style="min-height: 946px;">
+    <section class="content">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">#</h3>
+        </div>
+        <div class="box-body">
+          <form action="" method="post" id="add_edit_consultant" enctype="multipart/form-data">
+        <div class="row">
+          
+          {% csrf_token %}
+            
+           <div class="col-md-4">
+                <div class="form-group">
+                  <label>Name </label>
+                   <input type="text" class="form-control" id="name" name= "name" placeholder="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                  <label>Constitution </label>
+                   <input type="text" class="form-control" id="constitution" name= "constitution" placeholder="">
+                </div>
+            </div>
+
+             <div class="col-md-4">
+                <div class="form-group">
+                  <label>Location </label>
+                  {% for data in location_list %}
+                  <select name="location" id="location" class="form-control">
+
+                    <option value="" >Select Location</option>
+                    
+                      <option> {{data.location}} </option>
+                       <option value="{{moth.0}}" {% if moth.0 == data.from_month %} selected="" {% endif %}>{{moth.1}}</option>
+                    {% endfor %}
+                  </select> 
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <div class="form-group">
+                  
+        <input name="" type="submit" value="Submit" class="btn btn-primary" id="submitbtn"></div>
+      </div>
+
+      
+          </form>
+  </section>
+</div>
+
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+<div class="content-wrapper" style="min-height: 950x;">
+    <section class="content">
+      <div class="box box-default">
+        <!-- <div class="box-header with-border"> -->
+          <!-- <h3 class="box-title"> </h3> -->
+        <!-- </div> -->
+        <div class="box-body">
+          <form action="" method="post" id="add_edit_consultant" enctype="multipart/form-data">
+        <div class="row">
+          
+          {% csrf_token %}
+
+            <div class ="box-header with-border">
+              <div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Agency Type</label>
+                  {{form_address.agency_type}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id='abc' style='display:none;'>
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>{{ form_address.location.label}}</label>
+                        {{form_address.location}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>{{ form_address.name.label }}</label>
+                        {{ form_address.name }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.constitution.label }}</label>
+                          {{ form_address.constitution }}
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div id='abc2' style='display: none;'>
+            <h4 class="box-title">Correspondence Address</h4> 
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>{{ form_address.building.label}}</label>
+                        {{form_address.building}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>{{ form_address.block.label }}</label>
+                        {{ form_address.block }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.sector.label }}</label>
+                          <br>{{ form_address.sector }}</br>
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.city.label }}</label>
+                          {{ form_address.city }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.district.label }}</label>
+                          {{ form_address.district }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.state.label }}</label>
+                          <br>{{ form_address.state }}</br>
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.country.label }}</label>
+                          {{ form_address.country }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.zip_code.label }}</label>
+                          {{ form_address.zip_code }}
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div id='def' style='display: none;'>
+            <h4 class="box-title">Correspondence Address</h4> 
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>{{ form_address.building.label}}</label>
+                        {{form_address.building}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>{{ form_address.block.label }}</label>
+                        {{ form_address.block }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.sector.label }}</label>
+                          <br>{{ form_address.sector }}</br>
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.city.label }}</label>
+                          {{ form_address.city }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.district.label }}</label>
+                          {{ form_address.district }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.state.label }}</label>
+                          <br>{{ form_address.state }}</br>
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.country.label }}</label>
+                          {{ form_address.country }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.zip_code.label }}</label>
+                          {{ form_address.zip_code }}
+                        </div>
+                        
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div id='abc3' style='display: none;'> 
+            <div class ="box-header with-border">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-4">
+                    <label>{{ form_address.cin_number.label }}</label>
+                    {{ form_address.cin_number}}
+                    </div>
+                    <div class="col-sm-4">
+                      <label>{{ form_address.pan_card.label }}</label>
+                      {{ form_address.pan_card}}
+                    </div>
+                  <div class="col-sm-4">
+                    <label>{{ form_address.tan_no.label }}</label>
+                    <br>{{ form_address.tan_no }}</br>
+                  </div>
+                  <div class="col-sm-4">
+                    <label>{{ form_address.gst_registration.label }}</label>
+                    {{ form_address.gst_registration }}
+                  </div>
+                <div class="col-sm-4">
+                  <label>{{ form_address.date_of_incorporation.label }}</label>
+                  {{ form_address.date_of_incorporation }}
+                </div>
+                <div class="col-sm-4">
+                <label>Employee Strength</label>
+                {{ form_address.employee_strength }}
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id='ghi' style='display: none;'> 
+            <div class ="box-header with-border">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <label>{{ form_address.date_of_incorporation.label }}</label>
+                      {{ form_address.date_of_incorporation }}
+                    </div>
+                    <div class="col-sm-4">
+                      <label>{{ form_address.pan_card.label }}</label>
+                      {{ form_address.pan_card}}
+                    </div>
+                    <div class="col-sm-4">
+                      <label>{{ form_address.tan_no.label }}</label>
+                      <br>{{ form_address.tan_no }}</br>
+                    </div>
+                    <div class="col-sm-4">
+                      <label>{{ form_address.gst_registration.label }}</label>
+                      {{ form_address.gst_registration }}
+                    </div>
+                    <div class ='col-sm-4'>
+                      <label>Licence Number & Date</label>
+                      {{ form_address.licence_no }}
+                      {{ form_address.date }}
+                    </div>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+            <div id='abc4' style='display: none;'>
+            <h4 class="box-title">Contact Person Details</h4> 
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>{{ form_address.contact_person_name.label}}</label>
+                        {{form_address.contact_person_name}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>{{ form_address.designations.label }}</label>
+                        {{ form_address.designations }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form_address.mobile_number.label }}</label>
+                          <br>{{ form_address.mobile_number }}</br>
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Email ID</label>
+                          <br>{{ form_address.mail_id }}</br>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div id='abc5' style='display: none;'>
+            <div class ="box-header with-border">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="row">
+
+
+                   
+                    <div class="col-sm-6">
+                      <label>Specialisation</label>
+                      {{ form_address.services_offered }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id='jkl' style='display: none;'>
+            <div class ="box-header with-border">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="row">
+
+
+                    <div class="col-sm-6">
+                      <label>Facilities Available</label>
+                      {{ form_address.facilities_available }}
+                    </div>
+                   
+                    <div class="col-sm-6">
+                      <label>Specialisation</label>
+                      {{ form_address.services_offered }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+        </div>
+        <div class="form-group">
+        <input name="" type="submit" value="Submit" class="btn btn-primary" id="submitbtn" style="float:right"></div>
+      </div>
+          </form>
+  </section>
+</div> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){ 
+  $('#id_tan_no').change(function(){
+    var inputvalues = $(this).val();      
+    var regex = /^[A-Z]{4}[0-9]{5}[A-Z]{1}/;
+    if(!regex.test(inputvalues)){
+      $("#id_tan_no").val("");    
+      alert("invalid Tan Number");    
+      return regex.test(inputvalues);    
+    }    
+  });      
+});    
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+
+$('#id_agency_type').change(function(){
+  if ($('#id_agency_type').val()==='Consultant')
+  {
+    $('#abc').css({'display':'block'});
+    $('#abc2').css({'display':'block'});
+    $('#abc3').css({'display':'block'});
+    $('#abc4').css({'display':'block'});
+    $('#abc5').css({'display':'block'});
+
+
+
+
+
+  }
+  else if($('#id_agency_type').val()==='Hospital'){
+    // document.getElementById("id_interview_of_status").value = 'Rescheduled';
+
+    $('#abc').css({'display':'block'});
+    $('#abc2').css({'display':'block'});
+    $('#abc3').css({'display':'none'});
+    $('#ghi').css({'display':'block'});
+
+    $('#abc4').css({'display':'block'});
+    $('#abc5').css({'display':'none'});
+    $('#jkl').css({'display':'block'});
+
+  }
+  else if($('#id_agency_type').val()==='Verification Agent'){
+    $('#abc').css({'display':'block'});
+    $('#abc2').css({'display':'block'});
+    $('#abc3').css({'display':'block'});
+    $('#abc4').css({'display':'block'});
+    $('#abc5').css({'display':'block'});
+
+  }
+  else{
+     $('#abc').css({'display':'block'});
+    $('#abc2').css({'display':'block'});
+    $('#abc3').css({'display':'none'});
+    $('#ghi').css({'display':'block'});
+
+    $('#abc4').css({'display':'block'});
+    $('#abc5').css({'display':'none'});
+    $('#jkl').css({'display':'block'});
+
+  }
+
+});
+
+</script>
+
+{% endblock %}

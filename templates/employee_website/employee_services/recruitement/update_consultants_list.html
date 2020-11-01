@@ -1,0 +1,98 @@
+{% extends "layout/website_layout.html" %}
+{% load templatetag %}
+{% block content %}
+
+
+<div class="content-wrapper" style="min-height: 916px;">
+    <section class="content-header">
+      <h1>
+        Update Empanelment
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'admindashboard' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"> Update Empanelment </a></li>
+        <li> class="active"</li>
+      </ol>
+    </section>
+
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+                    {% get_permission_data_from 1 1 as permission_menu %}
+
+                    {% if permission_menu.add %}
+                      <div class="row">
+                          <div class="col-md-6">
+                            <a href="{% url 'crm_website_employeeservices_recruitement_updateconsultants_add'  %}" class="btn btn-primary">Add Agency</a>
+                          </div>
+                      </div>
+                    {% endif %}
+            </div>
+            <div class="box-body">
+            <div class='table-responsive'> <div style="overflow-x:auto;">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>      
+
+                      <th> Sr.No </th>
+                      <th> Agency Type </th>
+                      <th> Locations  </th>
+                      <th> Name</th>
+                      <th> Correspondence  Address  </th>
+                      <th> Contact Person</th>
+                      <th> Desigantion </th>
+                      <th> Mobile Number  </th>
+                      <th> Mail id </th>
+                      <th> constitution </th>
+                      <th> Status </th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% if responselistquery %}
+                         {% for data in responselistquery %}
+                           <tr>
+                            <td><strong>{{ responselistquery.start_index|add:forloop.counter0 }}</strong></td>
+                           
+                            <td>{{ data.agency_type }}</td>
+                            <td>{{ data.location }}</td>
+                            <td>{{ data.name }}</td>
+                            <td>{{ data.building }}</td>
+                            
+                            <td>{{ data.contact_person_name}}</td>
+                            <td>{{ data.designations }}</td>
+                            <td>{{ data.mobile_number }}</td>
+                            <td>{{ data.mail_id }}</td>
+                            <td>{{ data.constitution }}</td>
+                            <td>
+                              {% if permission_menu.edit %}
+                                <a href="{% url 'crm_website_employeeservices_recruitement_updateconsultants_edit' data.id  %}" style="color: green;">Modify</a>
+                              {% endif %}
+                              &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                              {% if permission_menu.delete %}
+                                <a href="{% url 'crm_website_employeeservices_recruitement_updateconsultants_delete' data.id %}" style="color: red;">Delete</a>
+                              {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr><td></td></tr>
+                    {% endif %}
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        
+        </div>
+        <div class="row">
+            {% include "layout/manage_pagination.html" %}
+        </div>
+      </div>
+    </section>
+  </div>
+
+{% include "layout/admin_message.html" %}
+{% endblock %}
+

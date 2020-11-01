@@ -1,0 +1,168 @@
+{% extends "layout/website_layout.html" %}
+
+{% block content %}
+
+
+<div class="content-wrapper" style="min-height: 950x;">
+    <section class="content">
+      <div class="box box-default">
+        <!-- <div class="box-header with-border"> -->
+          <!-- <h3 class="box-title"> </h3> -->
+        <!-- </div> -->
+        <div class="box-body">
+          <form action="" method="post" id="add_edit_consultant" enctype="multipart/form-data">
+        <div class="row">
+          
+          {% csrf_token %}
+          <h3 class="box-title">Offer Details</h3> 
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>Department</label><br>
+                        {{form.department}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Designation</label><br>
+                        {{ form.designation }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Grade</label><br>
+                          {{ form.grade }}
+                        </div>
+                        <div class="col-sm-3">
+                          <br><label>Joining Date</label><br>
+                          {{ form.valid_upto }}
+                        </div>
+                        
+                         <div class="col-sm-3">
+                          <br><label>Joining Location</label><br>
+                          {{ form.location }}
+                        </div>
+
+                        <div class="col-sm-3">
+                         <br> <label>Contact Person</label><br>
+                          {{ form.offer_contact_person }}
+                        </div>
+                        <div class="col-sm-3">
+                         <br><label>Designation</label><br>
+                          {{ form.designation }}
+                        </div>
+
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h3 class="box-title">Salary Structure</h3> 
+            <div class="box-header with-border">
+              <div>
+                <h4 class="box-title">Groos Salary</h4> 
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>Salary Code</label><br>
+                        {{form.salary_structut_salary_code_1}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Salary Name</label><br>
+                        {{ form.salary_structut_salary_name_1 }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Amount</label><br>
+                          {{ form.salary_structut_amount_offered_1 }}
+                        </div>
+                        <div class="col-sm-4">
+                          <br><label>Frequency</label><br>
+                          {{ form.salary_structut_salary_frequency_1 }}
+                        </div>
+                        <div class="col-sm-4">
+                          <br><label> Taxability</label><br>
+                          {{ form.salary_structut_taxability_1 }}
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-header with-border">
+              <div>
+                <h4 class="box-title">Perquisites</h4> 
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>Perquisite Type</label><br>
+                        {{form.perquisite_type}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Perquisite Name</label><br>
+                        {{ form.perquisitec_name_1 }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Amount</label><br>
+                          {{ form.perquisitec_name_1 }}
+                        </div>
+                        <div class="col-sm-4">
+                          <br><label>Frequency</label><br>
+                          {{ form.perquisite_frequency_1 }}
+                        </div>
+                        <div class="col-sm-4">
+                          <br><label>Part of CTC</label><br>
+                          {{ form.perquisite_CTC }}
+                        </div>
+                        <div class="col-sm-4">
+                          <br><label> Taxability</label><br>
+                          {{ form.perquisite_frequency_1 }}
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4 class="box-title">Deductions</h4> 
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>Deduction Type</label><br>
+                        {{form.deduction_type}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Deducion Name </label><br>
+                        {{ form.deduction_name }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Amount</label><br>
+                          {{ form.deduction_ammount }}
+                        </div>
+                        <div class="col-sm-4">
+                          <br><label>Part of CTC</label><br>
+                          {{ form.perquisite_CTC }}
+                        </div>
+                        <div class="col-sm-4">
+                         <br><label>Deduction Frequency</label><br>
+                          {{ form.deduction_frequancy }}</br>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="form-group">
+        <input name="" type="submit" value="Submit" class="btn btn-primary" id="submitbtn" style="float:right"></div>
+      </div>
+          </form>
+  </section>
+</div> 
+{% endblock %}
+
+

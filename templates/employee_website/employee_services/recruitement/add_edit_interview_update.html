@@ -1,0 +1,223 @@
+{% extends "layout/website_layout.html" %}
+
+{% block content %}
+
+<div class="content-wrapper" style="min-height: 950x;">
+    <section class="content">
+      <div class="box box-default">
+        <!-- <div class="box-header with-border"> -->
+          <!-- <h3 class="box-title"> </h3> -->
+        <!-- </div> -->
+        <div class="box-body">
+          <form action="" method="post" id="add_edit_consultant" enctype="multipart/form-data">
+        <div class="row">
+          
+          {% csrf_token %}
+
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-2">
+                          <label>Mode Of Interview</label>
+                        {{form.mode_of_interview}}
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Place of Interview</label>
+                        {{form.place_of_interview}}
+                        </div>
+                        <div class="col-sm-2">
+                          <label>Date of Interview</label>
+                          {{ form.date_interview }}
+                        </div>
+                        <div class="col-sm-3">
+                          <label>Time of Interview</label>
+                          {{ form.timing_of_interview }}
+                        </div>
+                        <div class="col-sm-3">
+                        	<label> Status of Interview</label><br>
+                        	{{ form.interview_of_status }}
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div id="abc" style="display: none;">
+            <br><h4 class="box-title">Interviewing Person Details</h4><br>
+            <div id ="abcd" class="box-header with-border" >
+              <div>
+                  <div class="col-md-12" >
+                    <div class="form-group">
+                      <div class ="row" >
+                        <div class ="col-sm-3">
+                          <label>Name</label>
+                        {{form.contact_person}}
+                        </div>
+                        <div class="col-sm-3">
+                          <label>Department</label>
+                        {{ form.department }}
+                        </div>
+                        <div class="col-sm-3">
+                          <label>Designation</label>
+                          <br>{{form.designation}}</br>
+                        </div>
+                        <div class="col-sm-3">
+                          <label>Individual Score</label>
+                          {{ form.individual_score }}
+                        </div>
+                        
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           	</div>
+
+            
+            <div id = "abcde" class ="box-header with-border" style="display: none;">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-4">
+                    <label>Interview Score</label>
+                    {{ form.interview_score}}
+                    </div>
+                  <div class="col-sm-4">
+                    <label>Opinion</label><br>
+                    <div>
+                      {{form.interview_result_status.as_hidden}}
+                      {% comment %}
+                      {{form.interview_approvel.as_hidden}}
+                      {% endcomment %}
+                      
+                    <input type="checkbox" onclick="if(this.checked){myFunction()}"> Recommended<br>
+                    <input type="checkbox" onclick="if(this.checked){myFunction2()}"> Reject<br>
+                    <input type="checkbox" onclick="if(this.checked){myFunction3()}"> Put on hold
+                  </div>
+                  {% comment %}
+                    <a href="{%url 'crm_website_employeeservices_recruitement_interview_update_recommended'  %}" style="color: green;">Recommended</a><br>
+                    <a href="{%url 'crm_website_employeeservices_recruitement_interview_update_rejected'  %}" style="color: green;">Reject</a><br>
+                    <a href="{%url 'crm_website_employeeservices_recruitement_interview_putonhold'  %}" style="color: green;">Put on Hold</a>
+					         {% endcomment %}
+                  </div>
+                   <div class="col-sm-4">
+                    <label>comment</label>
+                    <br>{{ form.comment }}</br>
+                  </div>
+                <div class="col-sm-6">
+                  <label>{{ form_address.date_of_incorporation.label }}</label>
+                  {{ form_address.date_of_incorporation }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id='abc3' style="display: none;">
+            <h4 class="box-title">Revised Schedule</h4> 
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-3">
+                          <label>Mode of Interview</label>
+                        {{form.mode_of_interview}}
+                        </div>
+                        <div class="col-sm-3">
+                          <label>Place of Interview</label>
+                        {{ form.place_of_interview }}
+                        </div>
+                        <div class="col-sm-3">
+                          <label>Date of Interview</label>
+                          <br>{{ form.date_interview }}</br>
+                        </div>
+                        <div class="col-sm-3">
+                          <label>Time of Interview</label>
+                          <br>{{ form.timing_of_interview }}</br>
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Reasons for Rescheduling</label>
+                          <br>{{ form.reasone_for_rescheduling }}</br>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+         </div>
+        </div>
+        <div class="form-group">
+        <input name="" type="submit" value="Submit" class="btn btn-primary" id="submitbtn" style="float:center"></div>
+      </div>
+          </form>
+  </section>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+
+$('#id_interview_of_status').change(function(){
+	
+	if ($('#id_interview_of_status').val()==='Attended')
+	{
+		$('#abc').css({'display':'block'});
+		$('#abcde').css({'display':'block'});
+		$('#abc3').css({'display':'none'});
+
+
+	}
+	else if($('#id_interview_of_status').val()==='Rescheduled'){
+    document.getElementById("id_interview_of_status").value = 'Rescheduled';
+
+		$('#abc3').css({'display':'block'});
+		$('#abc').css({'display':'none'});
+		$('#abcde').css({'display':'none'});
+
+	}
+	else{
+		$('#abc3').css({'display':'none'});
+		$('#abc').css({'display':'none'});
+		$('#abcde').css({'display':'none'});
+
+
+	}
+
+});
+
+</script>
+
+<script>
+function myFunction() {
+  document.getElementById("id_interview_result_status").value = 'Recommended';
+  //document.getElementById("id_interview_of_status").value = 'Attended';
+  // document.getElementById("id_interview_approvel").value = 1;
+
+
+}
+</script>
+
+<script>
+function myFunction2() {
+  //document.getElementById("id_interview_of_status").value = 'Attended';
+  document.getElementById("id_interview_result_status").value = 'Rejected';
+
+}
+</script>
+
+<script>
+function myFunction3() {
+  //document.getElementById("id_interview_of_status").value = 'Attended';
+  document.getElementById("id_interview_result_status").value = 'Put On Hold';
+
+}
+</script>
+
+{% endblock %}
+
+

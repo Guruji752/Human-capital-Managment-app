@@ -1,0 +1,131 @@
+{% extends "layout/website_layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <div class="content-wrapper" style="min-height: 946px;">
+    <section class="content">
+      <div class="box box-default">
+        <div class="box-header with-border">
+        </div>
+        <div class="box-body">
+          <form action="" method="post" id="user_registration_personal_details" enctype="multipart/form-data">
+            {% csrf_token %}
+              <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> New Details </h3>
+                </div>
+                    {% for field in new_details %}
+                        <div class="col-md-3">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}
+              </div>
+              
+              <div class ="row">
+                      <div class='box-header with-border'>
+                        <h3 class ="box-title">New Salary Structure</h3>
+                      </div>
+                          <div class="with-border">
+                           <h4 class="box-title color-famly"> Salary Structure</h4>
+                         </div>
+                            <div id="append_salary_structure">
+                                {% for field in salary_structutre %}
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                          <label>
+                                            {{ field.label }}  </label>
+                                            {{ field }}
+                                       </div>   
+                                    </div>
+                                {% endfor %}
+                                <div class="form-group">
+                                  <label>Total </label><span id="total_1"></span>           
+                                   <label>Monthly </label><span id="monthly_1"></span>        
+                                   <label>Annually </label><span id="annually_1"></span>
+                                </div> 
+                            </div>
+
+                           
+
+                        <div class="with-border">
+                          <h4 class="box-title color-famly">Perquisites </h4>
+                        </div>
+                        <div id="append_Deduction">
+                            {% for field in deduction_perquisites %}
+                                <div class="col-md-4 {% if not field.label == 'Applicablitity' %} deduction_perquisites_yes_no_1 {% endif %}">
+                                    <div class="form-group">
+                                          <label>
+                                            {{ field.label }}  </label>
+                                            {{ field }}
+                                    </div>
+
+                                </div>
+                            {% endfor %}
+                             <div class="form-group">
+                              <label>Total </label><span id="total1_1"></span>           
+                               <label>Monthly </label><span id="monthly1_1"></span>        
+                               <label>Annually </label><span id="annually1_1"></span>
+                            </div>
+                        </div>
+                           
+                    
+                        <div class="with-border">
+                          <h4 class="box-title color-famly">Deduction</h4>
+                        </div>
+                        <div id="append_add_deduction_2">
+                            {% for field in deduction %}
+                                <div class="col-md-3 {% if not field.label == 'Applicablitity' %} deduction_perquisites_yes_no_1 {% endif %}">
+                                    <div class="form-group">
+                                          <label>
+                                            {{ field.label }}  </label>
+                                            {{ field }}
+                                    </div>
+
+                                </div>
+                              
+                            {% endfor %}
+                             <div class="form-group">
+                              <label>Total </label><span id="total1_1"></span>           
+                               <label>Monthly </label><span id="monthly1_1"></span>        
+                               <label>Annually </label><span id="annually1_1"></span>
+                            </div>
+                        </div>
+                            
+
+                    </div>
+
+
+
+              <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> New Kra And Target </h3>
+                </div>
+                    {% for field in KRA_details %}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              {{ field|as_crispy_field }}
+                              
+                           </div>   
+                          </div>
+                    {% endfor %}
+              </div>
+               </div>
+                
+               
+              </div>
+
+              
+        <div class="form-group">
+        <input type="hidden" name="one_form" value="one_form">
+        <input name="" type="submit" value="Submit" class="btn btn-primary" id="submitbtn"></div>
+      </div>
+          </form>
+  </section>
+</div>
+
+
+{% endblock %}

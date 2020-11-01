@@ -1,0 +1,112 @@
+{% extends "layout/website_layout.html" %}
+{% load templatetag %}
+{% block content %}
+
+<div class="content-wrapper" style="min-height: 916px;">
+    <section class="content-header">
+      <h1>
+        Accept Claims
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'admindashboard' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"> Accept Claims   </a></li>
+        <li class="active"></li>
+      </ol>
+    </section>
+
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+                  <!-- <div class="row">
+                      <form method="POST" id="allocate_data">
+                          {% csrf_token %}
+                          <div class="col-md-3">
+                              <label> Status </label>
+                              <div class="form-group">
+                                  <select name="status" class="form-control" id="">
+                                   <option value="">Select Status</option>
+                                  {% for user in status %}
+                                      <option value="{{user.0}}">{{user.1}}
+                                      </option>
+                                  {% endfor %}
+                                  </select>
+                              </div>
+                          </div>
+                          <input type="hidden" name="bul_data" id="bul_data">
+                          <div class="col-md-3">
+                              <div class="form-group">
+                               <input type="button" id="upload_data" value="GO" class="btn btn-primary">
+                              </div>
+                          </div>
+                      </form>
+                  </div> -->
+            <div class="box-body">
+            <div class='table-responsive'> <div style="overflow-x:auto;">
+              <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                      <tr>
+                          <!-- <td> <input type="checkbox" name="select_all" id="select_all"> Select All </th> </td> -->
+                          <th> S:No </th>
+                          <th> Month and Year  </th>
+                          <th> Location  </th>
+                          <th> Employee Id</th>
+                          <th> Employee Name</th>
+                          <th> Designation </th>
+                          <th> Department </th>
+                          <th> Total Expenses</th>
+                          <th> Advance Taken</th>
+                          <th> Balance Claim </th>
+                          <th> Approved Claim </th>
+                          <th> Status </th>
+                          <th> Action </th>
+                      </tr>
+                  </thead>
+                <tbody>
+                    {% if responselistquery %}
+                         {% for data in responselistquery %}
+                           <tr>
+                            <td>
+                              <strong>{{ responselistquery.start_index|add:forloop.counter0 }}</strong>
+                            </td>
+                            <td>
+                              {{ data.claim_date_1 }}
+                            </td>
+                            <td>
+                              {{ data.location_1 }}
+                            </td>
+                            <td>{{ data.employee_id_1 }}</td>
+                            <td>{{ data.employee_names_1 }}</td>
+                            <td>{{ data.designation_1 }}</td>
+                            <td>{{ data.department_1 }}</td>
+                            <td>{{ data.total_expenses_1 }}</td>
+                           <td>{{ data.advance_taken_1 }}</td>
+                           <td>{{ data.balance_claim_1 }}</td>
+                           <td>{{ data.balance_claim_1 }}</td>
+                          <td> {{ data.claim_status }} </td>
+                          <td>
+                            <a href="{% url 'crm_employee_services_claimandreimbursement_submitclaims_approved' data.id %}" style ='color:green'> Accept </a>
+
+                            <a href="{% url 'claim_deleted' data.id %}" style='color:red'> Delete </a>
+                          </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr><td></td></tr>
+                    {% endif %}
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+                <div class="row">
+            {% include "layout/manage_pagination.html" %}
+        </div>
+      </div>
+    </section>
+</div>
+{% include "layout/admin_message.html" %}
+{% endblock %}
+

@@ -1,0 +1,76 @@
+{% extends "layout/website_layout.html" %}
+
+{% block content %}
+<div class="content-wrapper" style="min-height: 950x;">
+    <section class="content">
+      <div class="box box-default">
+      	 <div class="box-body">
+          <form action="" method="post" id="add_edit_consultant" enctype="multipart/form-data">
+        <div class="row">
+          
+          {% csrf_token %}
+
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>{{ form.mode_of_interview.label}}</label>
+                        {{form.mode_of_interview}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>{{ form.place_of_interview.label }}</label>
+                        {{ form.place_of_interview }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form.date_interview.label }}</label>
+                          {{ form.date_interview }}<br>
+                        </div>
+                        <div class="col-sm-4">
+                          <label> {{ form.timing_of_interview.label }}</label>
+                          {{ form.timing_of_interview }}
+                        </div>
+
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4 class="box-title">Contact Person Details</h4> 
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>Name</label>
+                        {{form.person_name}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Phone No</label>
+                        {{ form.person_phoneno }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Email Id</label>
+                          <br>{{ form.person_emailid }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Special Instruction</label>
+                          {{ form.special_instruction }}
+                        </div>
+                       
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <div class="form-group">
+        <input name="" type="submit" value="Submit" class="btn btn-primary" id="submitbtn" style="float:right"></div>
+      </div>
+          </form>
+  	</section>
+</div> 
+{% endblock %}
+
+

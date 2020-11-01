@@ -1,0 +1,189 @@
+{% extends "layout/website_layout.html" %}
+
+{% block content %}
+
+  <div class="content-wrapper" style="min-height: 950px;">
+    <section class="content">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title"> Update Empanelment</h3>
+        </div>
+        <div class="box-body">
+          <form action="" method="post" id="add_edit_consultant" enctype="multipart/form-data">
+        <div class="row">
+          
+          {% csrf_token %}
+
+          <div class ="box-header with-border">
+            <div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Agency Type</label>
+                {{form.agency_type}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-header with-border">
+            <div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class ="row">
+                      <div class ="col-sm-4">
+                        <label>{{ form.location.label}}</label>
+                      {{form.location}}
+                      </div>
+                      <div class="col-sm-4">
+                        <label>{{ form.name.label }}</label>
+                      {{ form.name }}
+                      </div>
+                      <div class="col-sm-4">
+                        <label> {{ form.constitution.label }}</label>
+                        {{ form.constitution }}
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h4 class="box-title">Correspondence Address</h4> 
+          <div class="box-header with-border">
+            <div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class ="row">
+                      <div class ="col-sm-4">
+                        <label>{{ form.building.label}}</label>
+                      {{form.building}}
+                      </div>
+                      <div class="col-sm-4">
+                        <label>{{ form.block.label }}</label>
+                      {{ form.block }}
+                      </div>
+                      <div class="col-sm-4">
+                        <label> {{ form.sector.label }}</label>
+                        <br>{{ form.sector }}</br>
+                      </div>
+                      <div class="col-sm-4">
+                        <label> {{ form.city.label }}</label>
+                        {{ form.city }}
+                      </div>
+                      <div class="col-sm-4">
+                        <label> {{ form.district.label }}</label>
+                        {{ form.district }}
+                      </div>
+                      <div class="col-sm-4">
+                        <label> {{ form.state.label }}</label>
+                        <br>{{ form.state }}</br>
+                      </div>
+                      <div class="col-sm-4">
+                        <label> {{ form.country.label }}</label>
+                        {{ form.country }}
+                      </div>
+                      <div class="col-sm-4">
+                        <label> {{ form.zip_code.label }}</label>
+                        {{ form.zip_code }}
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class ="box-header with-border">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-4">
+                  <label>{{ form.cin_number.label }}</label>
+                  {{ form.cin_number}}
+                  </div>
+                  <div class="col-sm-4">
+                    <label>{{ form.pan_card.label }}</label>
+                    {{ form.pan_card}}
+                  </div>
+                <div class="col-sm-4">
+                  <label>{{ form.tan_no.label }}</label>
+                  <br>{{ form.tan_no }}</br>
+                </div>
+                <div class="col-sm-6">
+                  <label>{{ form.gst_registration.label }}</label>
+                  {{ form.gst_registration }}
+                </div>
+              <div class="col-sm-6">
+                <label>{{ form.date_of_incorporation.label }}</label>
+                {{ form.date_of_incorporation }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <h4 class="box-title">Contact Person Details</h4> 
+          <div class="box-header with-border">
+            <div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class ="row">
+                      <div class ="col-sm-4">
+                        <label>{{ form.contact_person_name.label}}</label>
+                      {{form.contact_person_name}}
+                      </div>
+                      <div class="col-sm-4">
+                        <label>{{ form.designations.label }}</label>
+                      {{ form.designations }}
+                      </div>
+                      <div class="col-sm-4">
+                        <label> {{ form.mobile_number.label }}</label>
+                        <br>{{ form.mobile_number }}</br>
+                      </div>
+                      <div class="col-sm-4">
+                        <label>Email ID</label>
+                        <br>{{ form.mail_id }}</br>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class ="box-header with-border">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-4">
+                  <label>{{ form.experience.label }}</label>
+                  {{ form.experience }}
+                  </div>
+                  <div class="col-sm-4">
+                    <label>Specialisation</label>
+                    {{ form.services_offered }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>     
+        </div>
+        </div>
+        <div class="form-group">          
+        <input name="" type="submit" value="Submit" class="btn btn-primary" style = 'float:right' id="submitbtn"></div>
+      </div>
+          </form>
+  </section>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

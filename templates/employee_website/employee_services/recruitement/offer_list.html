@@ -1,0 +1,100 @@
+{% extends "layout/website_layout.html" %}
+{% load static %}
+{% load staticfiles %}
+
+{% load templatetag %}
+
+{% block content %}
+
+
+<div class="content-wrapper" style="min-height: 916px;">
+    <section class="content-header">
+      <h1>
+        Offer Approval
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'admindashboard' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Offer Approval</a></li>
+        <li class="active"></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              
+            </div>
+            <div class="box-body">
+            <div class='table-responsive'> <div style="overflow-x:auto;">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                      <tr>
+
+                      <th> Sr.No </th>
+                      <th> Location  </th>
+                      <th> Department </th>
+                      <th> Designation </th> 
+                      <th> Name of Candidate </th>
+                      <th> Email id </th>
+                      <th> Phone Number </th>
+                      <th> Offer Date</th>
+                      <th> Offer Letter </th> 
+                      <th> Action</th>
+                  </tr>
+                  
+
+
+
+
+             
+                </thead>
+                <tbody>
+                    {% if responselistquery %}
+                         {% for data in responselistquery %}
+                           <tr>
+                            <td><strong>{{ responselistquery.start_index|add:forloop.counter0 }}</strong></td>
+                            <td>{{ data.location }}</td>
+                            <td>{{ data.department.department }}</td>
+                            <td>{{ data.designation }} </td>
+                            <td>{{ data.name_of_candidate }} </td>
+                            <td>{{ data.email_id }} </td>
+                            <td>{{ data.phone_no }} </td>
+                            <td>{{ data.valid_upto }} </td>
+                            <td>{{ data.offer_letter }}</td>
+\                            <td>
+                              {% get_permission_data_from 1 7 as permission_menu %}
+
+                                <a href="{% url 'crm_website_employeeservices_recruitement_offer_approve' data.id %}" style="color: green;">View</a><br>
+                                <a href="{% url 'crm_website_employeeservices_recruitement_offer_approve' data.id %}" style="color: blue;">Approve</a><br>
+                                <a href="{% url 'crm_website_employeeservices_recruitement_offer_rejected' data.id %}" style="color: red;">Reject</a><br>
+                                <a href="{% url 'crm_website_employeeservices_recruitement_offer_putonhold' data.id %}" style="color: black;">Put on Hold</a><br>
+                                
+
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr><td></td></tr>
+                    {% endif %}
+                </tfoot>
+              </table>
+            </div>
+          </div>
+          <!-- /.box -->
+        </div>
+                <div class="row">
+            {% include "layout/manage_pagination.html" %}
+        </div>
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+{% include "layout/admin_message.html" %}
+{% endblock %}
+

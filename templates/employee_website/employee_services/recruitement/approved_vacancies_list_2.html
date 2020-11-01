@@ -1,0 +1,75 @@
+{% extends "layout/website_layout.html" %}
+{% load templatetag %}
+{% block content %}
+<div class="content-wrapper" style="min-height: 916px;">
+ <!-- Main content -->
+ <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+        </div>
+        <div class="box-body">
+        <div class='table-responsive'> <div style="overflow-x:auto;">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                  <th> Sr.No </th>
+                  <th> Location </th>
+                  <th> Department   </th>
+                  <th> Designation</th>
+                  <th> Existing Strength </th>
+                  <th> New Requirement  </th>
+                  <th> Total Strength </th>
+                  <th> Job Description </th>
+                  <th> Created By </th>
+                  <th> Current Status</th>
+                  <th> Action </th>
+              </tr>
+            </thead>
+            <tbody>
+
+                  {% if responselistquery %}
+                     {% for data in responselistquery %}
+                      <tr>
+                          <td><strong>{{ responselistquery.start_index|add:forloop.counter0 }}</strong></td>
+                          <td>{{ data.location}}</td>
+                          <td>{{ data.department.department }}</td>
+                          <td>{{ data.designation }}</td>
+                          <td>{{ data.existing_strength }}</td>
+                          <td>{{ data.new_requirement }}</td>
+                          <td>{{ data.total_strength }}</td>
+                          <td>{{ data.job_description }}</td>
+                          <td> {{ data.user }}</td>
+                          <td>{{ data.action_required }}</td>
+                        <td>
+                          {% get_permission_data_from 1 3 as permission_menu %}
+
+                            {% if permission_menu.edit %}
+                                <a href="{% url 'crm_website_employeeservices_show_requirement_update_edit' data.id %}" style="color: green;">Recommend
+                                </a>
+                            {% endif %}
+                             
+                        </td>
+                      </tr>
+                    {% endfor %}
+                {% else %}
+                <tr><td></td></tr>
+                {% endif %}
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <!-- /.box -->
+    </div>
+            <div class="row">
+        {% include "layout/manage_pagination.html" %}
+    </div>
+  </div>
+  <!-- /.row -->
+</section>
+<!-- /.content -->
+</div>
+{% include "layout/admin_message.html" %}
+{% endblock %}
+

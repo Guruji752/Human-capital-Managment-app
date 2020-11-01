@@ -1,0 +1,1336 @@
+{% extends "layout/website_layout.html" %}
+{% block content %}
+
+  <div class="content-wrapper" style="min-height: 946px;">
+    <section class="content">
+      <div class="box box-default">
+        <!-- <div class="box-header with-border">
+          <h3 class="box-title"> Add Update Registrations </h3>
+        </div> -->
+        <div class="box-body">
+          <form action="" method="post" id="user_registration_personal_details" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+              <div class="box-header with-border">
+                <div>
+                <div class="col-md-3">
+                <label> {{ personal_details.employee_id.label }}</label>
+                  {{ personal_details.employee_id }}
+                  </div>
+                <div class="col-md-3">
+                <label> {{ personal_details.mode_of_sourcing_1.label }}</label>
+                  {{ personal_details.mode_of_sourcing_1 }}
+                </div>
+
+                <div class="col-md-3">
+                  <label> {{ personal_details.type_of_job.label }}</label>
+                    {{ personal_details.type_of_job }}
+                </div>
+                <div class="col-md-3">
+                  <label> {{ personal_details.pay_roll_job.label }}</label>
+                    {{ personal_details.pay_roll_job }}
+                </div>
+  
+
+              </div>
+            </div>
+          </div>
+
+         
+              <div class="row">
+                <!-- <div class="box-header with-border"> -->
+                  <h4 class="box-title"> Personal Details </h4>
+                <!-- </div> -->
+                <div class="box-header with-border">
+                <!-- <div> -->
+                <div class="col-md-3">
+                  <label> {{ personal_details.name_salute_1.label }}</label>
+                    {{ personal_details.name_salute_1 }}
+                  </div>
+
+                <div class="col-md-3">
+                  <label> {{ personal_details.first_name.label }}</label>
+                    {{ personal_details.first_name }}
+                  </div>
+
+                <div class="col-md-3">
+                  <label> {{ personal_details.middle_name1.label }}</label>
+                    {{ personal_details.middle_name1 }}
+                  </div>
+
+                  <div class="col-md-3">
+                    <label> {{ personal_details.last_name1.label }}</label>
+                      {{ personal_details.last_name1 }}
+                    </div>
+
+                  <div class="col-md-3">
+                      <label> {{ personal_details.date_of_birth.label }}</label>
+                        {{ personal_details.date_of_birth }}
+                      </div>
+
+                  
+                  <div class="col-md-3">
+                      <label> {{ personal_details.caste.label }}</label>
+                          {{ personal_details.caste }}
+                      </div>
+
+                  <div class="col-md-3">
+                      <label> {{ personal_details.religion.label }}</label>
+                          {{ personal_details.religion }}
+                      </div>
+                        
+                        <div class="col-md-3">
+                          <label> {{ personal_details.marital_status_1.label }}</label>
+                              {{ personal_details.marital_status_1 }}
+                          </div> 
+
+                        <div class="col-md-3">
+                            <label> {{ personal_details.mobile_no.label }}</label>
+                                {{ personal_details.mobile_no }}
+                          </div>
+                          
+                        <div class="col-md-3">
+                            <label> {{ personal_details.landline_number.label }}</label>
+                                {{ personal_details.landline_number }}
+                          </div> 
+                          
+                          <div class="col-md-3">
+                            <label> {{ personal_details.email.label }}</label>
+                                {{ personal_details.email }}
+                          </div>
+                          
+                          <div class="col-md-3">
+                            <label> {{ personal_details.pan_card.label }}</label>
+                                {{ personal_details.pan_card }}
+                          </div>
+                          
+                          <div class="col-md-3">
+                            <label> {{ personal_details.adhar_card.label }}</label>
+                                {{ personal_details.adhar_card }}
+                          </div>
+                          
+                          <div class="col-md-3">
+                            <label> {{ personal_details.driving_license.label }}</label>
+                                {{ personal_details.driving_license }}
+                          </div>
+                          <div class="col-md-3">
+                            <label> {{ personal_details.passport.label }}</label>
+                                {{ personal_details.passport }}
+                          </div>
+                          <div class="col-md-3">
+                            <label> {{ personal_details.voter_id.label }}</label>
+                                {{ personal_details.voter_id }}
+                          </div>
+                          
+
+
+                    <!-- {% for field in personal_details %}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %} -->
+              <!-- </div> -->
+              </div>
+              </div>
+
+              <!-- present address  -->
+              <div class="row">
+                <!-- <div class="box-header with-border"> -->
+                  <h4 class="box-title"> Present Address </h4>
+                <!-- </div> -->
+                <div class="box-header with-border">
+                <!-- <div> -->
+                <div class="col-md-3">
+                  <label> {{ correspondence_address.house.label }}</label>
+                    {{ correspondence_address.house }}
+                  </div>
+
+                  <div class="col-md-3">
+                    <label> {{ correspondence_address.block.label }}</label>
+                      {{ correspondence_address.block }}
+                    </div>
+
+                    <div class="col-md-3">
+                      <label> {{ correspondence_address.sector.label }}</label>
+                        {{ correspondence_address.sector }}
+                      </div>
+
+                    <div class="col-md-3">
+                        <label> {{ correspondence_address.city.label }}</label>
+                          {{ correspondence_address.city }}
+                      </div>
+
+                    <div class="col-md-3">
+                        <label> {{ correspondence_address.district.label }}</label>
+                          {{ correspondence_address.district }}
+                      </div>
+
+                    <div class="col-md-3">
+                        <label> {{ correspondence_address.state_2.label }}</label>
+                          {{ correspondence_address.state_2 }}
+                      </div>
+
+
+                      <div class="col-md-3">
+                        <label> {{ correspondence_address.country.label }}</label>
+                          {{ correspondence_address.country }}
+                      </div>
+                        
+                        
+                      <div class="col-md-3">
+                        <label> {{ correspondence_address.zip_code.label }}</label>
+                          {{ correspondence_address.zip_code }}
+                      </div>
+
+                          
+                      <div class="col-md-3">
+                        <label> {{ correspondence_address.landmark.label }}</label>
+                          {{ correspondence_address.landmark }}
+                      </div>
+
+                      <div class="col-md-3">
+                        <label> {{ correspondence_address.staying_since.label }}</label>
+                          {{ correspondence_address.staying_since }}
+                      </div>
+                          
+                      <div class="col-md-3">
+                        <label> {{ correspondence_address.ownership_1.label }}</label>
+                          {{ correspondence_address.ownership_1 }}
+                      </div>
+              </div>
+              </div>
+              <!-- <input type="checkbox" id="filladdress" name="filladdress"/>Present address same as parmanent address.<br /> -->
+
+              <!-- <div class="form-group row justify-content-center mb-4">
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input"
+										id="{{form.correspondence_address_same_as_house.id_for_label}}"
+										{% if form.correspondence_address_same_as_house.value %}checked{%endif%}
+										name="{{form.correspondence_address_same_as_house.name}}">
+									<label class="custom-control-label"
+										for="{{form.correspondence_address_same_as_house.id_for_label}}">Same as above</label>
+
+								</div>
+							</div> -->
+<!-- end here presend address -->
+
+
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Permanent Address </h4>
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ permanent_address.house_1.label }}</label>
+      {{ permanent_address.house_1 }}
+    </div>
+
+    <div class="col-md-3">
+      <label> {{ permanent_address.block_1.label }}</label>
+        {{ permanent_address.block_1 }}
+      </div>
+
+      <div class="col-md-3">
+        <label> {{ permanent_address.sector_1.label }}</label>
+          {{ permanent_address.sector_1 }}
+        </div>
+
+      <div class="col-md-3">
+          <label> {{ permanent_address.city_1.label }}</label>
+            {{ permanent_address.city_1 }}
+        </div>
+
+      <div class="col-md-3">
+          <label> {{ permanent_address.district_1.label }}</label>
+            {{ permanent_address.district_1 }}
+        </div>
+
+      <div class="col-md-3">
+          <label> {{ permanent_address.state_1.label }}</label>
+            {{ permanent_address.state_1 }}
+        </div>
+
+
+        <div class="col-md-3">
+          <label> {{ permanent_address.country_1.label }}</label>
+            {{ permanent_address.country_1 }}
+        </div>
+          
+          
+            
+        <div class="col-md-3">
+          <label> {{ permanent_address.zip_code_1.label }}</label>
+            {{ permanent_address.zip_code_1 }}
+        </div>
+            
+        <div class="col-md-3">
+          <label> {{ permanent_address.landmark_1.label }}</label>
+            {{ permanent_address.landmark_1 }}
+        </div>
+
+        <div class="col-md-3">
+          <label> {{ permanent_address.staying_since_1.label }}</label>
+            {{ permanent_address.staying_since_1 }}
+        </div>
+            
+        <div class="col-md-3">
+          <label> {{ permanent_address.ownership_11.label }}</label>
+            {{ permanent_address.ownership_11 }}
+        </div>
+</div>
+</div>
+<!-- end here presend address -->
+
+<!-- emergency -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Emergency Contacts </h4>
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ emergency_contacts.emergency_name.label }}</label>
+      {{ emergency_contacts.emergency_name }}
+    </div>
+
+  <div class="col-md-3">
+      <label> {{ emergency_contacts.emergency_contact_number.label }}</label>
+        {{ emergency_contacts.emergency_contact_number }}
+      </div> 
+
+  <div class="col-md-3">
+        <label> {{ emergency_contacts.emergency_email_id.label }}</label>
+          {{ emergency_contacts.emergency_email_id }}
+      </div>
+      
+    <div class="col-md-3">
+        <label> {{ emergency_contacts.emergency_relationship.label }}</label>
+          {{ emergency_contacts.emergency_relationship }}
+      </div>     
+             
+</div>
+</div>
+<!-- end here presend address -->
+
+
+
+<!-- family -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Family Details </h4>
+    <div id="family_other_detail">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ other_family_relationship.other_relationship.label }}</label>
+      {{ other_family_relationship.other_relationship }}
+    </div>
+  <div class="col-md-3">
+      <label> {{ other_family_relationship.other_name_1.label }}</label>
+        {{ other_family_relationship.other_name_1 }}
+      </div>
+  <div class="col-md-3">
+        <label> {{ other_family_relationship.other_dob_1.label }}</label>
+          {{ other_family_relationship.other_dob_1 }}
+      </div>
+
+  <div class="col-md-3">
+        <label> {{ other_family_relationship.other_occupation_1.label }}</label>
+          {{ other_family_relationship.other_occupation_1 }}
+      </div>
+  <div class="col-md-3">
+        <label> {{ other_family_relationship.other_contact_number_1.label }}</label>
+          {{ other_family_relationship.other_contact_number_1 }}
+      </div> 
+   
+   
+
+<a href="javascript:void(0)" id="add_more_family_detail" style="color: red"  class="ad_more">Add More </a>
+
+</div>
+</div>
+</div>
+<!-- end here family  -->
+
+
+<!-- medical -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Medical History </h4>
+    <div id="append_medical_history">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ medical_history.name_1.label}}</label>
+      {{ medical_history.name_1 }}
+    </div>
+
+  <div class="col-md-3">
+    <label> {{ medical_history.type_of_illness_1.label}}</label>
+      {{ medical_history.type_of_illness_1 }}
+    </div>
+
+  <div class="col-md-3">
+      <label> {{ medical_history.blood_group_1.label}}</label>
+        {{ medical_history.blood_group_1 }}
+    </div>
+  
+  <div class="col-md-2">
+        <label> {{ medical_history.result_1.label}}</label>
+          {{ medical_history.result_1 }}
+      </div> 
+  
+    <a href="javascript:void(0)" id="append_add_more_sub_field" style="color: red"  class="ad_more">Add More </a>
+   </div>
+ </div>
+</div>
+<!-- end here medical  -->
+
+
+
+<!-- eductaion -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Educational Qualifications </h4>
+    <div id="append_educationale_qualification">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ qualification.educational_qualificationcourse_name_1.label}}</label>
+      {{ qualification.educational_qualificationcourse_name_1 }}
+    </div>
+
+  <div class="col-md-3">
+      <label> {{ qualification.educational_qualification_college.label}}</label>
+        {{ qualification.educational_qualification_college }}
+      </div> 
+
+  <div class="col-md-3">
+        <label> {{ qualification.educational_qualificationuniversity_institution_1.label}}</label>
+          {{ qualification.educational_qualificationuniversity_institution_1 }}
+      </div>
+      
+      <div class="col-md-3">
+        <label> {{ qualification.educational_qualification_Acedemic_Year.label}}</label>
+          {{ qualification.educational_qualification_Acedemic_Year }}
+      </div>
+
+      <div class="col-md-3">
+        <label> {{ qualification.educational_qualification_marks.label}}</label>
+          {{ qualification.educational_qualification_marks }}
+      </div>      
+   
+    <a href="javascript:void(0)" id="append_add_more_qualification" class="ad_more" style="color: red" >Add More</a>
+</div>
+</div>
+</div>
+<!-- end here education  -->
+
+
+
+<!-- past -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Past Employers </h4>
+    <div id="past_employers">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ past_employers.past_name.label}}</label>
+      {{ past_employers.past_name }}
+    </div>
+
+    <div class="col-md-3">
+      <label> {{ past_employers.past_desigantion.label}}</label>
+        {{ past_employers.past_desigantion }}
+      </div>
+
+    <div class="col-md-3">
+        <label> {{ past_employers.past_period.label}}</label>
+          {{ past_employers.past_period }}
+        </div>
+    
+
+    <div class="col-md-3">
+      <label> {{ past_employers.past_Responsibilites.label}}</label>
+        {{ past_employers.past_Responsibilites }}
+      </div>
+
+      <div class="col-md-3">
+        <label> {{ past_employers.past_salary_drawn.label}}</label>
+          {{ past_employers.past_salary_drawn }}
+        </div>
+
+        <div class="col-md-3">
+          <label> {{ past_employers.past_reason_leaving.label}}</label>
+            {{ past_employers.past_reason_leaving }}
+          </div>
+      
+    <a href="javascript:void(0)" id="add_more_past_employers_detail" class="ad_more" style="color: red" >Add More</a>
+</div>
+</div>
+</div>
+<!-- end here past  -->
+
+
+<!-- refrernce -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> References </h4>
+    <div id="append_references">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ references.referencename_1.label}}</label>
+      {{ references.referencename_1 }}
+    </div>
+
+    <div class="col-md-3">
+      <label> {{ references.referencecontact_number_1.label}}</label>
+        {{ references.referencecontact_number_1 }}
+      </div>
+
+      <div class="col-md-3">
+        <label> {{ references.referenceemail_id_1.label}}</label>
+          {{ references.referenceemail_id_1 }}
+        </div>
+
+        <div class="col-md-3">
+          <label> {{ references.referencerelationship_1.label}}</label>
+            {{ references.referencerelationship_1 }}
+          </div>
+
+          <div class="col-md-3">
+            <label> {{ references.referenceknown_since_1.label}}</label>
+              {{ references.referenceknown_since_1 }}
+            </div>
+  
+    <a href="javascript:void(0)" id="append_add_references" class="ad_more" style="color: red" > Add More </a>
+</div>
+</div>
+</div>
+
+<!-- end here past  -->
+
+<!-- joining -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Joining Details </h4>
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ joining_detail.joining_date_of_joining.label}}</label>
+      {{ joining_detail.joining_date_of_joining }}
+    </div>
+    <div class="col-md-3">
+      <label> {{ joining_detail.joining_time.label}}</label>
+        {{ joining_detail.joining_time }}
+      </div>
+      <div class="col-md-3">
+        <label> {{ joining_detail.joining_probation_period.label}}</label>
+          {{ joining_detail.joining_probation_period }}
+        </div>
+
+        <div class="col-md-3">
+          <label> {{ joining_detail.joining_next_date_of_increment.label}}</label>
+            {{ joining_detail.joining_next_date_of_increment }}
+          </div>
+
+          <div class="col-md-3">
+            <label> {{ joining_detail.joining_location.label}}</label>
+              {{ joining_detail.joining_location }}
+            </div>
+
+            <div class="col-md-3">
+              <label> {{ joining_detail.joining_department.label}}</label>
+                {{ joining_detail.joining_department }}
+              </div>
+
+              <div class="col-md-3">
+                <label> {{ joining_detail.joining_designation.label}}</label>
+                  {{ joining_detail.joining_designation }}
+                </div>
+
+                <div class="col-md-3">
+                  <label> {{ joining_detail.joining_grade_offered.label}}</label>
+                    {{ joining_detail.joining_grade_offered }}
+                  </div>
+
+                  <div class="col-md-3">
+                    <label> {{ joining_detail.joining_reporting_to.label}}</label>
+                      {{ joining_detail.joining_reporting_to }}
+                    </div>
+
+
+                  <div class="col-md-3">
+                    <label> {{ joining_detail.joining_responsibilities.label}}</label>
+                      {{ joining_detail.joining_responsibilities }}
+                    </div>
+
+                    <div class="col-md-3">
+                      <label> {{ joining_detail.joining_role.label}}</label>
+                        {{ joining_detail.joining_role }}
+                      </div>
+
+                      <div class="col-md-3">
+                        <label> {{ joining_detail.contract_valid_up_to.label}}</label>
+                          {{ joining_detail.contract_valid_up_to }}
+                        </div>                   
+    </div>
+    </div>
+  
+<!-- end here joining  -->
+
+
+<!-- renumeration salary -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Remuneration Details </h4>
+    <div id="append_salary_structure">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ salary_structutre.salary_structut_gross_salary_1.label}}</label>
+      {{ salary_structutre.salary_structut_gross_salary_1 }}
+    </div>
+
+    <div class="col-md-3">
+      <label> {{ salary_structutre.salary_structut_salary_code_1.label}}</label>
+        {{ salary_structutre.salary_structut_salary_code_1 }}
+      </div>
+
+      <div class="col-md-3">
+        <label> {{ salary_structutre.salary_structut_salary_name_1.label}}</label>
+          {{ salary_structutre.salary_structut_salary_name_1 }}
+        </div>
+
+        <div class="col-md-3">
+          <label> {{ salary_structutre.salary_structut_salary_frequency_1.label}}</label>
+            {{ salary_structutre.salary_structut_salary_frequency_1 }}
+          </div>
+
+          <div class="col-md-3">
+            <label> {{ salary_structutre.salary_structut_taxability_status.label}}</label>
+              {{ salary_structutre.salary_structut_taxability_status }}
+            </div> 
+
+            <div class="col-md-3">
+              <label> {{ salary_structutre.salary_structut_amount_offered_1.label}}</label>
+                {{ salary_structutre.salary_structut_amount_offered_1 }}
+              </div>
+              
+              <div class="col-md-3">
+                <label> {{ salary_structutre.salary_structut_percentage_value_flag_1.label}}</label>
+                  {{ salary_structutre.salary_structut_percentage_value_flag_1 }}
+                </div>
+                <div class="col-md-3">
+                  <label>Total </label><span id="total_1"></span>           
+                   <label>Monthly </label><span id="monthly_1"></span>        
+                   <label>Annually </label><span id="annually_1"></span>
+                </div>    
+  
+  
+    <a href="javascript:void(0)" id="append_add_more_sal_stru" class="ad_more" style="color: red" >Add More </a>
+</div>
+</div>
+</div>
+<!-- end here renumeration salary  -->
+
+
+
+<!-- Prequesty salary -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Perquisites </h4>
+    <div id="append_Deduction">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ deduction_perquisites.perquisitec_category_1.label}}</label>
+      {{ deduction_perquisites.perquisitec_category_1 }}
+    </div>
+
+    <div class="col-md-3">
+      <label> {{ deduction_perquisites.perquisitec_name_1.label}}</label>
+        {{ deduction_perquisites.perquisitec_name_1 }}
+      </div>
+
+      <div class="col-md-3">
+        <label> {{ deduction_perquisites.perquisite_frequency_1.label}}</label>
+          {{ deduction_perquisites.perquisite_frequency_1 }}
+        </div> 
+        <div class="col-md-3">
+          <label> {{ deduction_perquisites.perquisitec_taxability.label}}</label>
+            {{ deduction_perquisites.perquisitec_taxability }}
+          </div>
+          
+          <div class="col-md-3">
+            <label> {{ deduction_perquisites.perquisitec_amount_offered_1.label}}</label>
+              {{ deduction_perquisites.perquisitec_amount_offered_1 }}
+            </div> 
+
+            <div class="col-md-3">
+              <label> {{ deduction_perquisites.perquisitec_ctc.label}}</label>
+                {{ deduction_perquisites.perquisitec_ctc }}
+              </div> 
+              <!-- <div class="form-group">
+                <label>Total </label><span id="total_1"></span>           
+                <label>Monthly </label><span id="monthly_1"></span>        
+                <label>Annually </label><span id="annually_1"></span>
+              </div>                -->
+   
+  
+    <a href="javascript:void(0)" id="append_add_deduction" class="ad_more" style="color: red" >Add More </a>
+</div>
+</div>
+</div>
+<!-- end here preqsite salary  -->
+
+
+<!-- deduction salary -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Deductions </h4>
+    <div id="Deduction_append">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ deduction.deduction_code.label}}</label>
+      {{ deduction.deduction_code }}
+    </div>
+    <div class="col-md-3">
+      <label> {{ deduction.deduction_name.label}}</label>
+        {{ deduction.deduction_name }}
+      </div>
+      <div class="col-md-3">
+        <label> {{ deduction.deduction_frequancy.label}}</label>
+          {{ deduction.deduction_frequancy }}
+        </div>
+
+        <div class="col-md-3">
+          <label> {{ deduction.deduction_tax.label}}</label>
+            {{ deduction.deduction_tax }}
+          </div>
+
+          <div class="col-md-3">
+            <label> {{ deduction.deduction_ammount.label}}</label>
+              {{ deduction.deduction_ammount }}
+            </div>
+
+            <div class="col-md-3">
+              <label> {{ deduction.deduction_ctc_1.label}}</label>
+                {{ deduction.deduction_ctc_1 }}
+              </div>
+
+   
+    <a href="javascript:void(0)" id="add_more_Deduction_append" class="ad_more" style="color: red" >Add More </a>
+</div>
+</div>
+</div>
+
+<!-- end here deduction  salary  -->
+
+
+<!-- bank  -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Bank Details </h4>
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ bank_detail.bank_name.label}}</label>
+      {{ bank_detail.bank_name }}
+    </div>
+
+    <div class="col-md-3">
+      <label> {{ bank_detail.branch.label}}</label>
+        {{ bank_detail.branch }}
+      </div>
+     
+    <div class="col-md-3">
+      <label> {{ bank_detail.ifscc_code.label}}</label>
+        {{ bank_detail.ifscc_code }}
+      </div> 
+
+      <div class="col-md-3">
+        <label> {{ bank_detail.micr.label}}</label>
+          {{ bank_detail.micr }}
+        </div>
+        
+      <div class="col-md-3">
+        <label> {{ bank_detail.account_type.label}}</label>
+          {{ bank_detail.account_type }}
+        </div>
+        
+        <div class="col-md-3">
+          <label> {{ bank_detail.bank_account_number.label}}</label>
+            {{ bank_detail.bank_account_number }}
+          </div> 
+    </div>
+    </div>
+
+<!-- end here bank  salary  -->
+
+
+<!-- asset  -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Asset Allocation </h4>
+    <div id="asset_allocated_id">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ asset_allocated.asset_location_1.label}}</label>
+      {{ asset_allocated.asset_location_1 }}
+    </div>
+
+    <div class="col-md-3">
+      <label> {{ asset_allocated.asset_code_1.label}}</label>
+        {{ asset_allocated.asset_code_1 }}
+      </div>
+
+      <div class="col-md-3">
+        <label> {{ asset_allocated.asset_name_1.label}}</label>
+          {{ asset_allocated.asset_name_1 }}
+        </div>
+
+        <div class="col-md-3">
+          <label> {{ asset_allocated.asset_serial_number_1.label}}</label>
+            {{ asset_allocated.asset_serial_number_1 }}
+          </div>
+
+          <div class="col-md-3">
+            <label> {{ asset_allocated.asset_condition_1.label}}</label>
+              {{ asset_allocated.asset_condition_1 }}
+            </div>
+  
+    <a href="javascript:void(0)" id="add_more_asset_allocated" class="ad_more" style="color: red" >Add More </a>
+</div>
+</div>
+</div>
+<!-- end here asset  -->
+
+<!-- access  -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Access Details </h4>
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ access_control.official_email_id.label}}</label>
+      {{ access_control.official_email_id }}
+    </div>
+    <div class="col-md-3">
+      <label> {{ access_control.mail_id.label}}</label>
+        {{ access_control.mail_id }}
+      </div>
+
+      <div class="col-md-3">
+        <label> {{ access_control.id_card_number.label}}</label>
+          {{ access_control.id_card_number }}
+        </div>
+
+        <div class="col-md-3">
+          <label> {{ access_control.attendance_card_number.label}}</label>
+            {{ access_control.attendance_card_number }}
+          </div> 
+
+          <div class="col-md-3">
+            <label> {{ access_control.system_access_id.label}}</label>
+              {{ access_control.system_access_id }}
+            </div>          
+    </div>
+    </div>
+
+<!-- access  -->
+
+<!-- verification  -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Verfification Status </h4>
+    <div id="verification_status">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ verification_status.verification_name.label}}</label>
+      {{ verification_status.verification_name }}
+    </div>
+    <div class="col-md-3">
+      <label> {{ verification_status.verification_report.label}}</label>
+        {{ verification_status.verification_report }}
+      </div>
+      <div class="col-md-3">
+        <label> {{ verification_status.verification_status.label}}</label>
+          {{ verification_status.verification_status }}
+        </div>
+            
+    <a href="javascript:void(0)" id="add_more_verification_status" class="ad_more" style="color: red" >Add More </a>
+</div>
+</div>
+</div>
+
+<!-- verification  -->
+
+<!-- document  -->
+
+<div class="row">
+  <!-- <div class="box-header with-border"> -->
+    <h4 class="box-title"> Documents Attachments </h4>
+    <div id="documents_attachment">
+  <!-- </div> -->
+  <div class="box-header with-border">
+  <!-- <div> -->
+  <div class="col-md-3">
+    <label> {{ documents_attachment.doc_document_type.label}}</label>
+      {{ documents_attachment.doc_document_type }}
+    </div>
+
+  <div class="col-md-3">
+      <label> {{ documents_attachment.doc_document_name.label}}</label>
+        {{ documents_attachment.doc_document_name }}
+      </div> 
+
+      <div class="col-md-3">
+        <label> {{ documents_attachment.doc_show_document.label}}</label>
+          {{ documents_attachment.doc_show_document }}
+        </div>
+        
+      <div class="col-md-3">
+          <label> {{ documents_attachment.doc_upload.label}}</label>
+            {{ documents_attachment.doc_upload }}
+        </div>  
+            
+    <a href="javascript:void(0)" id="add_more_documents_attachment" class="ad_more" style="color: red" >Add More </a>
+</div>
+</div>
+</div>
+
+<!-- documents  -->
+
+
+
+
+
+
+              <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Family Details  </h3>
+                </div>
+                <div class="with-border">
+                    <h4 class="box-title color-famly"> Mother   </h4>
+                      {% for field in family_detail_mother %}
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <label>{{ field.label }}  </label>
+                                  {{ field }}
+                             </div>   
+                          </div>
+                      {% endfor %}
+
+                    <div class="with-border">
+                    <h4 class="box-title color-famly"> Father   </h4>
+                    </div>
+
+                      {% for field in family_detail_father %}
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <label>{{ field.label }}  </label>
+                                  {{ field }}
+                             </div>   
+                          </div>
+                      {% endfor %}
+                    <div class="with-border">
+                    <h4 class="box-title color-famly"> Spouse   </h4>
+                    </div> -->
+
+                      <!-- {% for field in family_detail_spouse %}
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <label>{{ field.label }}  </label>
+                                  {{ field }}
+                             </div>   
+                          </div>
+                      {% endfor %} -->
+
+              <!-- <div class="with-border">
+                    <h4 class="box-title color-famly"> Children   </h4>
+                    </div>
+                    <div id="family_detail_children">
+                      {% for field in family_detail_children %}
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <label>{{ field.label }}  </label>
+                                  {{ field }}
+                             </div>   
+                          </div>
+                      {% endfor %}
+                    </div>
+                   <a href="javascript:void(0)" id="add_more_family_children" style="color: red"  class="ad_more">Add More </a>
+
+                     <div class="with-border">
+                    <h4 class="box-title color-famly"> Others       Relationship   </h4>
+                    </div>
+                    <div id="other_family_relation">
+                      {% for field in other_family_relationship %}
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <label>{{ field.label }}  </label>
+                                  {{ field }}
+                             </div>   
+                          </div>
+                      {% endfor %}
+                    </div>
+                    <a href="javascript:void(0)" id="add_more_other_relationship" style="color: red"  class="ad_more">Add More </a>
+                </div>
+              </div>
+              <div> -->
+
+              <!-- <div class="row">
+                  <div class="box-header with-border">
+                    <h3 class="box-title"> Medical History  </h3>
+                  </div>
+                  <div id="append_medical_history">
+                    {% for field in medical_history %}
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <a href="javascript:void(0)" id="append_add_more_sub_field" style="color: red"  class="ad_more">Add Medical </a>
+              </div> -->
+
+              <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Correspondance Address   </h3>
+                </div>
+
+                    {% for field in correspondence_address %}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}
+              </div> -->
+
+              
+              <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Permanent Address    </h3>
+                </div>
+                    {% for field in permanent_address %}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}
+              </div> -->
+
+<!-- 
+              <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Joining Details    </h3>
+                </div>
+                  {% for field in joining_detail %}
+                      <div class="col-md-4">
+                          <div class="form-group">
+                            <label>{{ field.label }}  </label>
+                              {{ field }}
+                         </div>   
+                      </div>
+                  {% endfor %}
+              </div>
+ -->
+
+              <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Educational Qualification </h3>
+                </div>
+                <div id="append_educationale_qualification">
+                    {% for field in qualification %}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}
+                </div>
+                  <a href="javascript:void(0)" id="append_add_more_qualification" class="ad_more" style="color: red" >Add Qualification</a>
+              </div> -->
+
+              <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Professional Journey   </h3>
+                </div>
+                <div id="append_professional_journey">
+                    {% for field in professional_journey %}
+                        <div class="col-md-12">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}
+                </div>
+                <a href="javascript:void(0)" id="append_add_more_professional_journey" class="ad_more" style="color: red" >Add Professional </a>
+              </div> -->
+
+             
+              <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Salary Structutre   </h3>
+                </div>
+                <div id="append_salary_structure">
+                    {% for field in salary_structutre %}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <label>
+                                {{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}
+                    <div class="form-group">
+                      <label>Total </label><span id="total_1"></span>           
+                       <label>Monthly </label><span id="monthly_1"></span>        
+                       <label>Annually </label><span id="annually_1"></span>
+                    </div> 
+                </div>
+
+                <a href="javascript:void(0)" id="append_add_more_sal_stru" class="ad_more" style="color: red" >Add Salary </a>
+              </div> -->
+                <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title">   Perquisites </h3>
+                </div>
+                <div id="append_Deduction">
+                    {% for field in deduction_perquisites %}
+                        <div class="col-md-4 {% if not field.label == 'Applicablitity' %} deduction_perquisites_yes_no_1 {% endif %}">
+                            <div class="form-group">
+                                  <label>
+                                    {{ field.label }}  </label>
+                                    {{ field }}
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                     <div class="form-group">
+                      <label>Total </label><span id="total1_1"></span>           
+                       <label>Monthly </label><span id="monthly1_1"></span>        
+                       <label>Annually </label><span id="annually1_1"></span>
+                    </div>
+                </div>
+                    <a href="javascript:void(0)" id="append_add_deduction" class="ad_more" style="color: red" >Add More </a>
+              </div> -->
+            <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title">  Deduction </h3>
+                </div>
+                <div id="append_Deduction">
+                    {% for field in deduction %}
+                        <div class="col-md-4 {% if not field.label == 'Applicablitity' %} deduction_perquisites_yes_no_1 {% endif %}">
+                            <div class="form-group">
+                                  <label>
+                                    {{ field.label }}  </label>
+                                    {{ field }}
+                            </div>
+
+                        </div>
+                      
+                    {% endfor %}
+                     <div class="form-group">
+                      <label>Total </label><span id="total1_1"></span>           
+                       <label>Monthly </label><span id="monthly1_1"></span>        
+                       <label>Annually </label><span id="annually1_1"></span>
+                    </div>
+                </div>
+                    <a href="javascript:void(0)" id="append_add_deduction_1" class="ad_more" style="color: red" >Add More </a>
+              </div> -->
+
+
+
+              <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Bank Details    </h3>
+                </div>
+                    {% for field in bank_detail %}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}
+              </div> -->
+
+              <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> References </h3>
+                </div>
+                 <div id="append_references">
+                    {% for field in references %}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}  
+                  </div>
+                  <a href="javascript:void(0)" id="append_add_references" class="ad_more" style="color: red" > Add References </a>
+              </div>  -->
+
+         <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Asset Allocated </h3>
+                </div>
+                <div id="asset_allocated_id">
+                    {% for field in asset_allocated %}
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}
+                </div> -->
+                <!-- <div class = "text-right">
+                  <label class = "RemoveDiv">
+                    {{ field.DELETE }}Remove
+                  </label>
+                  </div> -->
+                <!-- <a href="javascript:void(0)" id="add_more_asset_allocated" class="ad_more" style="color: red" >Add More </a>
+              </div> -->
+              <!-- <div class="row">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Access Controls </h3>
+                </div>
+                <div id="append_document">
+                    {% for field in access_control %}
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label>{{ field.label }}  </label>
+                                {{ field }}
+                           </div>   
+                        </div>
+                    {% endfor %}
+                </div> -->
+              <!-- </div> -->
+        <div class="form-group">
+        <input type="hidden" name="one_form" value="one_form">
+        <input name="" type="submit" value="Submit" class="btn btn-primary" id="submitbtn"></div>
+      </div>
+          </form>
+  </section>
+</div>
+
+<!-- <script>
+  $(document).ready(function(){
+  $(document).on('click',".formset-item .RemoveDiv input[type=checkbox]",function (e){
+      e.preventDefault();
+      
+    $('.FormsetConfirmModal').modal('show');
+    $(this).parents('.formset-item').hide();
+  });  
+  });
+</script> -->
+
+<script>
+$(function(){
+    $("#checkbox").on("click", function(){
+      if($(this).is(':checked')){  
+        var correspondence_address.house.lable = $("#correspondence_address.house.lable").val();
+        var correspondence_address.block.lable= $("#correspondence_address.block.lable").val();
+        var correspondence_address.sector.lable = $("#correspondence_address.sector.lable").val();
+        var correspondence_address.city.lable = $("#correspondence_address.city.lable").val();
+        var correspondence_address.district.lable = $("#correspondence_address.district.lable").val();
+        var correspondence_address.state_2.lable = $("#correspondence_address.state_2.lable").val();
+        var correspondence_address.country.lable = $("#correspondence_address.country.lable").val();
+        var correspondence_address.zip_code.lable = $("#correspondence_address.zip_code.lable").val();
+        var correspondence_address.landmark.lable = $("#correspondence_address.landmark.lable").val();
+        var correspondence_address.staying_since.lable = $("#correspondence_address.staying_since.lable").val();
+        var correspondence_address.ownership_1.lable = $("#correspondence_address.ownership_1.lable").val();
+
+        $("#permanent_address.house_1.label").var(correspondence_address.house.lable);
+        $("#permanent_address.block_1.label").var(correspondence_address.block.lable);
+        $("#permanent_address.sector_1.label").var(correspondence_address.sector.lable);
+        $("#permanent_address.city_1.label ").var(correspondence_address.city.lable);
+        $("#permanent_address.district_1.label").var(correspondence_address.district.lable);
+        $("#permanent_address.state_1.label ").var(correspondence_address.state_2.lable);
+        $("#permanent_address.country_1.label"). var(correspondence_address.country.lable);  
+        $("#permanent_address.zip_code_1.label ").var(correspondence_address.zip_code.lable); 
+        $("#permanent_address.landmark_1.label").var(correspondence_address.landmark.lable);
+        $("#permanent_address.staying_since_1.label ").var(correspondence_address.staying_since.lable);
+        $("#permanent_address.ownership_11.label").val(correspondence_address.ownership_1.lable);
+
+              // $("#correspondence_address.house.lable").val($("#permanent_address.house_1.label").val());
+              // $("#correspondence_address.block.lable").val($("#permanent_address.block_1.label").val());
+              // $("#correspondence_address.sector.lable").val($("#permanent_address.sector_1.label").val());
+              // $("#correspondence_address.city.lable").val($("#permanent_address.city_1.label ").val());
+              // $("#correspondence_address.district.lable").val($("#permanent_address.district_1.label").val());
+              // $("#correspondence_address.state.lable").val($("#permanent_address.state_1.label ").val());
+              // $("#correspondence_address.country.lable").val($("#permanent_address.country_1.label").val());
+              // $("#correspondence_address.zip_code.lable").val($("#permanent_address.zip_code_1.label ").val());
+              // $("#correspondence_address.landmark.lable").val($("#permanent_address.landmark_1.label").val());
+              // $("#correspondence_address.staying_since.lable").val($("#permanent_address.staying_since_1.label ").val());   
+              // $("#correspondence_address.ownership_1.lable").val($("#permanent_address.ownership_11.label").val());                            
+  // }
+  // else {
+  //     $("#correspondence_address.house.label").val('');
+  //     $("#correspondence_address.block.label").val('');
+  //     $("#correspondence_address.sector.label").val('');
+  //     $("#correspondence_address.city.label").val(''); 
+  //     $("#correspondence_address.district.label").val(''); 
+  //     $("#correspondence_address.state.label").val('');
+  //     $("#correspondence_address.country.label").val('');
+  //     $("#correspondence_address.zip_code.label").val('');
+  //     $("#correspondence_address.landmark.label").val('');
+  //     $("#correspondence_address.staying_since.label").val('');
+  //     $("#correspondence_address.ownership_1.label").val('');        
+
+
+}
+  });
+});
+</script>
+
+{% endblock %}

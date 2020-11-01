@@ -1,0 +1,100 @@
+{% extends "layout/website_layout.html" %}
+{% load templatetag %}
+{% block content %}
+
+<div class="content-wrapper" style="min-height: 916px;">
+    <section class="content-header">
+      <h1>
+        Claim
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li>
+          <a href="{% url 'admindashboard' %}"><i class="fa fa-dashboard"></i> Home </a>
+        </li>
+        <li> <a href="#"> Claim </a> </li>
+        <li class="active"> </li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+               <div class="row">
+                   
+                </div>
+            <div class="box-body">
+            <div class='table-responsive'> <div style="overflow-x:auto;">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>              
+                      <th> S:No </th>
+                          <th> Month and Year  </th>
+                          <th> Location  </th>
+                          <th> Employee Id</th>
+                          <th> Employee Name</th>
+                          <th> Designation </th>
+                          <th> Department </th>
+                          <th> Claim Date </th>
+                          <th> Claim Type </th>
+                          <th> Claim Period </th>
+                          <th> Claim Details </th>
+                          <th> Claim Amount </th>
+                          <th> Claim Limit </th>
+                          <th> Comment </th>
+                          <th> Documents </th>
+                          <th> Action </th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% if responselistquery %}
+                         {% for data in responselistquery %}
+                          <tr>
+                              <td>
+                                <strong>{{ responselistquery.start_index|add:forloop.counter0 }}</strong>
+                              </td>
+                              <td>{{ data.claim_date_1 }}</td>
+                              <td>{{ data.location_1 }}</td>
+                              <td>{{ data.employee_id_1 }}</td>
+                              <td>{{ data.employee_names_1}}</td>
+                              <td>{{ data.designation_1 }}</td>
+                              <td>{{ data.department_1}}</td>
+                              <td>{{ data.date_of_processing_1 }}</td>
+                              <td>{{ data.claim_type_1}}</td>
+                              <td>{{ data.claim_period_1 }}</td>
+                              <td>{{ data.claim_details_1 }}</td>
+                              <td>{{ data.claim_amount_1 }}</td>
+                              <td>{{ data.claim_restriced_to_1 }}</td>
+                              <th>{{ data.comment_1 }}</th>
+                              <th><a href="/media/{{ data.claim_upload_document }}" target="_blank">Documnet</th>
+                              <td> 
+                                    <a href="{% url 'approved_claim' data.id %}" style='color:green'> Approve </a>
+
+                                    <a href="{% url 'Rejected_claim' data.id %} " style='color:red'> Reject </a>
+
+                              </td>
+
+                          </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr><td></td></tr>
+                    {% endif %}
+                </tfoot>
+              </table>
+            </div>
+          </div>
+          <!-- /.box -->
+        </div>
+                <div class="row">
+            {% include "layout/manage_pagination.html" %}
+        </div>
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+{% endblock %}
+

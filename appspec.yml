@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/aditshsoft/development/hcm_management/aditshsoft
+hooks:
+  BeforeInstall:
+    - location: scripts/remove.sh
+      timeout: 500
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      timeout: 500
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server.sh
+      timeout: 500
+      runas: root

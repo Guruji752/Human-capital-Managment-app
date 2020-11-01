@@ -1,0 +1,103 @@
+{% extends "layout/website_layout.html" %}
+{% load templatetag %}
+{% block content %}
+
+
+<div class="content-wrapper" style="min-height: 916px;">
+    <section class="content-header">
+      <h1>
+        Requirement Status
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'admindashboard' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"> Requirement Status  </a></li>
+        <li class="active"></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              {% get_permission_data_from 1 2 as permission_menu %}
+                    
+                    {% if permission_menu.add %}
+                      <div class="row">
+                        <div class="col-md-4">
+                          <a href="{% url 'crm_website_employeeservices_show_requirement_list' %}" class="btn btn-primary"> Show Requirement  </a>
+                        </div>
+                      </div>
+                      <div class="box-body">
+                        <div class='table-responsive'> <div style="overflow-x:auto;">
+                          <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                              <tr>
+                                  <th> Sr.No </th>
+                                  <th> Location </th>
+                                  <th> Department   </th>
+                                  <th> Designation</th>
+                                  <th> Existing Strength </th>
+                                  <th> New Requirement  </th>
+                                  <th> Total Strength </th>
+                                  <th> Job Description </th>
+                                  <th> Created By </th>
+                                  <th> Recommended By</th>
+                                  <th> Current Status</th>
+                                  <th> Action </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                
+                                  {% if responselistquery %}
+                                     {% for data in responselistquery %}
+                                      <tr>
+                                          <td><strong>{{ responselistquery.start_index|add:forloop.counter0 }}</strong></td>
+                                          <td>{{ data.location}}</td>
+                                          <td>{{ data.department.department }}</td>
+                                          <td>{{ data.designation }}</td>
+                                          <td>{{ data.existing_strength }}</td>
+                                          <td>{{ data.new_requirement }}</td>
+                                          <td>{{ data.total_strength }}</td>
+                                          <td>{{ data.job_description }}</td>
+                                          <td>{{ data.user }}</td>
+                                          <td>{{ data.user }}</td>
+                                          <td>{{ data.recommendation }}</td>
+                                        <td>    
+
+                                                <a href="{% url 'recommended_view' data.id %}" style="color: green;">View
+                                                </a><br>
+                                                <a href="{% url 'employeeservices_recommended_requirement_modify' data.id %}" style="color: green;">Modify
+                                                </a><br>
+
+                                                <a href="{% url 'employeeservices_show_requirement_delete' data.id %}" style="color: red;">Delete
+                                                </a
+                                             
+                                        </td>
+                                      </tr>
+                                    {% endfor %}
+                                {% else %}
+                                <tr><td></td></tr>
+                                {% endif %}
+                            </tfoot>
+                          </table>
+                
+                      
+                      
+                    {% endif %}
+            </div>
+            
+           
+                <div class="row">
+            {% include "layout/manage_pagination.html" %}
+        </div>
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% include "layout/admin_message.html" %}
+{% endblock %}
+

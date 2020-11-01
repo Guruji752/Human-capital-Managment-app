@@ -1,0 +1,127 @@
+{% extends "layout/website_layout.html" %}
+{% load templatetag %}
+{% block content %}
+
+<div class="content-wrapper" style="min-height: 916px;">
+    <section class="content-header">
+      <h1>
+       Overtime Status 
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'admindashboard' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"> Overtime Status    </a></li>
+        <li class="active"></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <form action="" method="get"  enctype="multipart/form-data" novalidate="novalidate">
+              <div class="row">
+                    <div class="col-md-3">
+                          <div class="form-group">
+                          <label> Filter  </label>
+                           <select name="filter" onchange="this.form.submit()" class="form-control ">
+                             <option> Select </option>
+
+                              {% get_permission_data_from 7 8 as permission_menu %}
+                              {% if permission_menu.view %}
+                                <option value="1" {% if request.GET.filter == "1" %} selected="" {% endif %}>   Today </option>
+                              {% endif }
+                              {% get_permission_data_from 7 9 as permission_menu %}
+
+                              {% if permission_menu.view %}
+                                <option value="2" {% if request.GET.filter == "2" %} selected="" {% endif %}> Current Month </option>
+                              {% endif %}
+
+                              {% get_permission_data_from 7 10 as permission_menu %}
+
+                              {% if permission_menu.view }
+                                <option value="3" {% if request.GET.filter == "3" %} selected="" {% endif %}> Previous Months </option>
+                              {% endif %}
+                           </select>
+                          </div>
+                    </div>
+                </div>
+                </div>
+              </form>
+            <div class="box-body">
+            <div class='table-responsive'> <div style="overflow-x:auto;">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr> 
+                       <th> Sr.No </th>
+                      <th>Month/Year</th>
+                      <th>Location</th>
+                      <th>Employee id</th>
+                      <th>Employee Name</th>
+                      <th>Overtime Type</th>
+                      <th>Mode of Attendance</th>
+                      <th>Date</th>
+                      <th>Login Time</th>
+                      <th>Login Location</th>
+                      <th>Logout Time</th>
+                      <th>Logout Location</th>
+                      <th> Reasons </th>
+                      <th>Action</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                    {% if responselistquery %}
+                         {% for data in responselistquery %}
+                          <tr>
+                              <td>
+                                  <strong>
+                                  {{ responselistquery.start_index|add:forloop.counter0 }}
+                                </strong>
+                              </td>
+                              <td>{{ data.month_and_year_date|date:"Y-m " }}</td>
+                              <td>{{ data.location }}</td>
+                              <td>{{ data.employee_id }}</td>
+                              <td>{{ data.employee_names }}</td>
+                              <td>{{ data.overtime_type }}</td>
+                              <td>{{ data.mode_of_attendance }}</td>
+                              <td>{{ data.date }}</td>
+                              <td>{{ data.overtime_start }}</td>
+                              <td>{{ data.login_address }}</td>
+                              <td>{{ data.overtime_end }}</td>
+                              <td>{{ data.logout_address }}</td>
+                              <td>{{ data.reason }}</td>
+                              <td> 
+                                  <a href="{% url 'approved_overtime' data.id %}" style="color: green">Approve </a><br>
+
+                                  <a href="{% url 'website_edit_update_over_time_delete' data.id %}"> Reject </a><br>
+
+                                  <a href="{% url 'website_edit_update_over_time_delete' data.id %}" style="color: red"> Delete </a>
+
+
+
+                                  
+                              </td>
+                          </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr><td></td></tr>
+                    {% endif %}
+                </tfoot>
+              </table>
+            </div>
+          </div>
+          <!-- /.box -->
+        </div>
+                <div class="row">
+            {% include "layout/manage_pagination.html" %}
+        </div>
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+{% endblock %}
+

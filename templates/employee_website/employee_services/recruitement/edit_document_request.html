@@ -1,0 +1,45 @@
+{% extends "layout/website_layout.html" %}
+
+{% block content %}
+<div class="content-wrapper" style="min-height: 950x;">
+    <section class="content">
+      <div class="box box-default">
+         <div class="box-body">
+          <form action="" method="post" id="add_edit_consultant" enctype="multipart/form-data">
+        <div class="row">
+          
+          {% csrf_token %}
+            <h4 class="box-title">Document Requirement</h4> 
+            <div class="box-header with-border">
+              <div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class ="row">
+                        <div class ="col-sm-4">
+                          <label>Document Type</label>
+                        {{form.document_type_1}}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Document Name</label>
+                        {{ form.document_name_1 }}
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Required By</label>
+                          {{ form.required_by_1 }}<br>
+                        </div>
+                       
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+        <div class="form-group">
+        <input name="" type="submit" value="Submit" class="btn btn-primary" id="submitbtn" style="float:right"></div>
+      </div>
+          </form>
+    </section>
+</div> 
+{% endblock %}
+
+
